@@ -1,0 +1,40 @@
+.ai1data {
+	padding: 20px;
+}
+.ai1title {
+	font-weight: bold !important;
+}
+
+.ai1data #submit {
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+    padding-bottom: 45px;
+    width: 100%;
+}
+
+.ai1data input[type="text"] {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.inner-wrap {
+	padding: 20px;
+}
+
+.folders-list {
+    padding: 10px 30px 30px 30px;
+    background: #2ecc71;
+    color: white;
+    font-size: 17px;
+    line-height: 26px;
+    border-radius: 25px;
+}
+
+.folders-list h3 {
+    color: white;
+}
