@@ -1,18 +1,25 @@
 <?php
 /*
 * Plugin Name: All-in-One WP Migration Folders Excluder
-* Description: This plugin provides functionality to exclude extra backup folders like Updraft, WpBackup etc from been backed up in All in One WP Migration backup. This will speed up the backup process and reduce the size of the backup.
-* Version: 1.0
+* Description: Provides functionality to exclude extra folders like Updraft, WpBackup etc from been backed up in All in One WP Migration backup tool. This will speed up the backup process and reduce the size of the backup.
+* Version: 2.0
 * Plugin URI: https://github.com/anonymousguyx/ai1wpm-excluder/
 * Author: Zeeshan Ahmed
-* Author URI: http://www.fiverr.com/zeeshanx
+* Author URI: https://www.fiverr.com/zeeshanx
+* Requires at least: 3.0.1
+* Tested up to: 5.0.1
+* Requires PHP: 5.2.4
 *
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
 */
 
 // Settings Menu
 add_action('admin_menu', 'ai1excludes_menu');
 function ai1excludes_menu(){
-	add_menu_page( 'All-in-One Excludes', 'All-in-One Excludes', 'administrator', 'ai1excludes', 'ai1excludes_menu_page', 'dashicons-image-filter', '77' );
+	add_menu_page( 'All-in-One Excludes', 'All-in-One Excludes', 'administrator', 'ai1excludes', 'ai1excludes_menu_page', 'dashicons-lightbulb', '77' );
 }
 
 add_action( 'admin_init', 'a1i_options' );
@@ -26,9 +33,9 @@ function ai1excludes_menu_page(){ ?>
 			<form class="ai1data" action="options.php" method="post">
 			<?php settings_fields( 'ai1exclude-data' ); ?>
 			<?php do_settings_sections( 'ai1excludes_menu' ); ?>
-			<h3> Folder(s) Name to exclude: </h3>
-			<p class="ai1para">Please specify the name of folders for example "updraft" (without quote). If have more than one folder, add a comma before adding another folder name.</p>
-			<p class="ai1para" style="color: #e74c3c;"><b>Note: Do not add a space before or after comma.</b></p>
+			<h3> Folder(s) name to exclude: </h3>
+			<p class="ai1para">Please add the name of folder(s) that you want to exlude. Example "Updraft,WP-Backup" (without quote).</p>
+			<p class="ai1para" style="color: #e74c3c;"><b>Note: Please do not add any space before or after comma.</b></p>
 			<input type="text" name="folderpathx" value="<?php echo esc_attr( get_option( 'folderpathx' )); ?>">
 			<?php submit_button(); ?>
 			</form>
@@ -38,14 +45,16 @@ function ai1excludes_menu_page(){ ?>
 		if (class_exists('Ai1wm_Main_Controller')) {
 			echo "<div class='wrap'><div class='inner-wrap'>";
 			echo "<div class='folders-list'>";
-			echo "<h3>Excluded folders list 🗂:</h3>";
+			echo "<h3>Excluded folders list <img src='https://i.imgur.com/2f6uj3i.png' style='margin: 0 10px;height: 20px;'>:</h3>";
 			$string = esc_attr( get_option( 'folderpathx' ));
 			$array = explode(',', $string);
+			$fcount = 1;
 			foreach ($array as $line) {
-				echo $line;
+				echo $fcount; echo '. '; echo $line;
 				echo "<br>";
+				$fcount++;
 			};
-			echo "</div></div></div>";
+			echo "</div><p class='author-cr'>Made by <a href='https://www.fiverr.com/zeeshanx' target='_blank'>Zeeshanx</a></p></div></div>";
 		} else {
 			echo "<center>All-in-One WP Migration is not active. Please install/activate it to get this plugin working.</center>";
 		}
@@ -53,7 +62,7 @@ function ai1excludes_menu_page(){ ?>
 
 // Load Styles
 function load_styles(){
-	wp_register_style( 'ai1styles', plugin_dir_url( __FILE__ ) . 'assets/css/style.css', false, 'v.1.0' );
+	wp_register_style( 'ai1styles', plugin_dir_url( __FILE__ ) . 'assets/css/style.css', false, 'v.2.0' );
 	wp_enqueue_style( 'ai1styles' );
 }
 add_action( 'admin_enqueue_scripts', 'load_styles' );
