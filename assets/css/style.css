@@ -32,9 +32,12 @@
     color: white;
     font-size: 17px;
     line-height: 26px;
-    border-radius: 25px;
 }
 
 .folders-list h3 {
     color: white;
+}
+
+.author-cr {
+    text-align: right;
 }
