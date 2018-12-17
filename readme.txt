@@ -2,16 +2,22 @@
 Plugin Name: All-in-One WP Migration Folders Exclude
 Version: 1.0
 Plugin URI: https://github.com/anonymousguyx/ai1wpm-excluder
-Tags: All-in-One WP Migration, Exclude, Folder Exclude, Backup
+Tags: All-in-One WP Migration Excludes, Exclude, Folder Exclude, Backup Folders Exclude
 Author: Zeeshan Ahmed
-Author URI: http://www.fiverr.com/zeeshanx
-Requires at least: 2.9
-Tested up to: 4.9.x
+Author URI: https://www.fiverr.com/zeeshanx
+Requires at least: 3.0.1
+Tested up to: 5.0.1
 Stable tag: 1.2
 
 === Description ===
-This plugin provides functionality to exclude extra backup folders like Updraft, WpBackup etc from been backed up in All in One WP Migration backup. This will speed up the backup process and reduce the size of the backup.
+This plugin provides functionality to exclude extra folders like Updraft, WpBackup etc from been backed up in All in One WP Migration backup tool. This will speed up the backup process and reduce the size of the backup.
 
 - It's a fully open source plugin. Enjoy!
+
+== Version 2.1 ==
+1. Minor fixes for the bugs
+2. Speed improvement
+3. Added numbers to the folders listings
+4. More clear instructions
 
 Thank you!
