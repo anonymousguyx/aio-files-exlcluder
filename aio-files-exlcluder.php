@@ -34,7 +34,7 @@ function ai1excludes_menu_page(){ ?>
 			<?php settings_fields( 'ai1exclude-data' ); ?>
 			<?php do_settings_sections( 'ai1excludes_menu' ); ?>
 			<h3> Folder(s) name to exclude: </h3>
-			<p class="ai1para">Please add the name of folder(s) that you want to exlude. Example "Updraft,WP-Backup" (without quote).</p>
+			<p class="ai1para">Please add the name of folder(s) that you want to exlude. Entries are folder paths relative to <span style="font-family:monospace">/wp-content/</span>, e.g. <span style="font-family:monospace">updraft,wp-backup,uploads/backupbuddy_backups</span></p>
 			<p class="ai1para" style="color: #e74c3c;"><b>Note: Please do not add any space before or after comma.</b></p>
 			<input type="text" name="folderpathx" value="<?php echo esc_attr( get_option( 'folderpathx' )); ?>">
 			<?php submit_button(); ?>
