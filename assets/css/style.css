@@ -2,16 +2,26 @@
 	padding: 20px;
 }
 .ai1title {
-	font-weight: bold !important;
+    font-weight: bold !important;
+    margin: 10px 20px !important;
 }
 
 .ai1data #submit {
     padding: 20px;
     border: none;
-    border-radius: 0;
+    border-radius: 10px;
     font-size: 18px;
-    padding-bottom: 45px;
     width: 100%;
+    background: #2ecc71;
+    transition: .25s;
+}
+
+.ai1data #submit:hover {
+    background: #27ae60;
+    transition: .25s;
+    margin-top: -2px;
+    margin-bottom: 2px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.19);
 }
 
 .ai1data input[type="text"] {
@@ -20,6 +30,9 @@
     border: none;
     font-size: 18px;
     font-weight: 100;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.088);
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
 .inner-wrap {
@@ -40,4 +53,40 @@
 
 .author-cr {
     text-align: right;
+    color: white;
+}
+
+.author-cr a {
+    color: white;
+}
+
+.wrap.a1i-x {
+    background: white;
+    padding: 25px;
+    margin: 5%;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+.wrap.a1i-x.colored {
+    background: #2ecc71;
+}
+
+.wrap.colored .inner-wrap {
+    padding: 0px 20px;
+}
+
+.wrap.a1i-x #setting-error-settings_updated {
+    background: #34495e;
+    border: #34495e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.wrap.a1i-x #setting-error-settings_updated .notice-dismiss:before {
+    color: white !important;
 }

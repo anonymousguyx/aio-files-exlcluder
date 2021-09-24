@@ -1,14 +1,14 @@
 <?php
 /*
-* Plugin Name: AIO Files Excluder
-* Description: Provides functionality to exclude extra folders like Updraft, WpBackup etc from been backed up in All in One WP Migration backup tool. This will speed up the backup process and reduce the size of the backup.
-* Version: 2.2
+* Plugin Name: Folder Excluder for AIO WP Migration
+* Description: This tiny, open-source plugin provides a missing functionality of All-in-One WP Migration plugin to exclude the selective folders from the backup. It will help keeping the backup file smaller and free from garbage data. Extra folders like Updraft, BackitUp, aiowm-backups, and Backups etc.
+* Version: 3.0
 * Plugin URI: https://github.com/anonymousguyx/ai1wpm-excluder/
 * Author: Zeeshan Ahmed
-* Author URI: https://www.fiverr.com/zeeshanx
+* Author URI: https://www.upwork.com/o/profiles/users/~013f747c0979c28c0c/
 * Requires at least: 3.0.1
-* Tested up to: 5.2
-* Requires PHP: 5.2.4
+* Tested up to: 5.7
+* Requires PHP: 5.4
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 // Settings Menu
 add_action('admin_menu', 'ai1excludes_menu');
 function ai1excludes_menu(){
-	add_menu_page( 'AIO Exluded Files', 'AIO Exluded Files', 'administrator', 'ai1excludes', 'ai1excludes_menu_page', 'dashicons-lightbulb', '77' );
+	add_submenu_page('options-general.php', 'AIO WP Migration Folders Excluder', 'AIO WP Migration Folders Excluder', 'administrator', 'ai1excludes', 'ai1excludes_menu_page', 'dashicons-lightbulb', '77' );
 }
 
 add_action( 'admin_init', 'a1i_options' );
@@ -28,8 +28,8 @@ function a1i_options(){
 }
 
 function ai1excludes_menu_page(){ ?>
-		<div class="wrap">
-			<h1 class="ai1title"> All-in-One WP Migration Folders Excluder </h1>
+		<div class="wrap a1i-x">
+			<h1 class="ai1title"> AIO WP Migration Folders Excluder </h1>
 			<form class="ai1data" action="options.php" method="post">
 			<?php settings_fields( 'ai1exclude-data' ); ?>
 			<?php do_settings_sections( 'ai1excludes_menu' ); ?>
@@ -43,7 +43,7 @@ function ai1excludes_menu_page(){ ?>
 		<?php
 
 		if (class_exists('Ai1wm_Main_Controller')) {
-			echo "<div class='wrap'><div class='inner-wrap'>";
+			echo "<div class='wrap a1i-x colored'><div class='inner-wrap'>";
 			echo "<div class='folders-list'>";
 			echo "<h3>Excluded folders list <span class='dashicons dashicons-external'></span>:</h3>";
 			$string = esc_attr( get_option( 'folderpathx' ));
@@ -54,7 +54,7 @@ function ai1excludes_menu_page(){ ?>
 				echo "<br>";
 				$fcount++;
 			};
-			echo "</div><p class='author-cr'>Made by <a href='https://www.fiverr.com/zeeshanx' target='_blank'>Zeeshanx</a></p></div></div>";
+			echo "</div><p class='author-cr'>Made with ♥️ by <a href='https://www.upwork.com/o/profiles/users/~013f747c0979c28c0c/' target='_blank'>Zeeshan Ahmed</a></p></div></div>";
 		} else {
 			echo "<center>All-in-One WP Migration is not active. Please install/activate it to get this plugin working.</center>";
 		}
